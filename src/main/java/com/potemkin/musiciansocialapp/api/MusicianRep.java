@@ -1,14 +1,12 @@
 package com.potemkin.musiciansocialapp.api;
 
 
-import org.springframework.data.cassandra.repository.AllowFiltering;
-import org.springframework.data.cassandra.repository.CassandraRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.potemkin.musiciansocialapp.models.Musician;
 
-public interface MusicianRep extends CassandraRepository<Musician,Integer>{
+public interface MusicianRep extends CrudRepository<Musician,Integer>{
     
-    @AllowFiltering
     public Musician findMusicianById(Integer id);
 
 }

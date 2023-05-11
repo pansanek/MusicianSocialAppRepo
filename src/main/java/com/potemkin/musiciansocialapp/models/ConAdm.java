@@ -1,18 +1,24 @@
 package com.potemkin.musiciansocialapp.models;
 
-import org.springframework.data.cassandra.core.mapping.Column;
-import org.springframework.data.cassandra.core.mapping.PrimaryKey;
-import org.springframework.data.cassandra.core.mapping.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Table("con_adm")
+@Entity
+@Table(name="con_adm")
 public class ConAdm {
-    @PrimaryKey
+    @Id
+    @Column(name="Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column("user_id")
+    @Column(name="user_id")
     private int userId;
 
-    @Column("concert_venue_id")
+    @Column(name="concert_venue_id")
     private int concertVenueId;
 
     public int getId() {

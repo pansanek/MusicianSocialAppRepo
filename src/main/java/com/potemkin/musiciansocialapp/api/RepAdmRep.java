@@ -1,14 +1,12 @@
 package com.potemkin.musiciansocialapp.api;
 
 
-import org.springframework.data.cassandra.repository.AllowFiltering;
-import org.springframework.data.cassandra.repository.CassandraRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.potemkin.musiciansocialapp.models.RepAdm;
 
-public interface RepAdmRep extends CassandraRepository<RepAdm,Integer>{
-    
-    @AllowFiltering
+public interface RepAdmRep extends CrudRepository<RepAdm,Integer>{
+
     public RepAdm findRepAdmById(Integer id);
 
 }

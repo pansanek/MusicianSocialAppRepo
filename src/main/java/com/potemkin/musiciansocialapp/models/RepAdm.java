@@ -1,18 +1,23 @@
 package com.potemkin.musiciansocialapp.models;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-import org.springframework.data.cassandra.core.mapping.Column;
-import org.springframework.data.cassandra.core.mapping.PrimaryKey;
-import org.springframework.data.cassandra.core.mapping.Table;
-
-@Table("rep_adm")
+@Entity
+@Table(name="rep_adm")
 public class RepAdm {
-    @PrimaryKey
+    @Id
+    @Column(name="Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column("user_id")
+    @Column(name="user_id")
     private int userId;
 
-    @Column("repetision_base_id")
+    @Column(name="repetision_base_id")
     private int repetitionBaseId;
 
     public int getId() {

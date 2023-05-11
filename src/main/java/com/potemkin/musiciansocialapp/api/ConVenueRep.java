@@ -1,14 +1,12 @@
 package com.potemkin.musiciansocialapp.api;
 
 
-import org.springframework.data.cassandra.repository.AllowFiltering;
-import org.springframework.data.cassandra.repository.CassandraRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.potemkin.musiciansocialapp.models.ConVenue;
 
-public interface ConVenueRep extends CassandraRepository<ConVenue,Integer>{
+public interface ConVenueRep extends CrudRepository<ConVenue,Integer>{
     
-    @AllowFiltering
     public ConVenue findConVenueById(Integer id);
 
 }

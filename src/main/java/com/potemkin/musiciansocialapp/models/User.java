@@ -1,30 +1,36 @@
 package com.potemkin.musiciansocialapp.models;
 
-import org.springframework.data.cassandra.core.mapping.Column;
-import org.springframework.data.cassandra.core.mapping.PrimaryKey;
-import org.springframework.data.cassandra.core.mapping.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Table("User")
+@Entity
+@Table(name="User")
 public class User {
-    @PrimaryKey
+    @Id
+    @Column(name="Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column("login")
+    @Column(name="login")
     private String login;
 
-    @Column("password")
+    @Column(name="password")
     private String password;
 
-    @Column("email")
+    @Column(name="email")
     private String email;
 
-    @Column("about")
+    @Column(name="about")
     private String about;
 
-    @Column("user_type")
+    @Column(name="user_type")
     private String userType;
 
-    @Column("type_id")
+    @Column(name="type_id")
     private int typeId;
 
     public int getId() {
