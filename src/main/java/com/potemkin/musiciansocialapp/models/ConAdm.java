@@ -1,32 +1,36 @@
 package com.potemkin.musiciansocialapp.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="con_adm")
 public class ConAdm {
     @Id
-    @Column(name="Id")
+    @Column(name="con_adm_id",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int conAdmid;
 
     @Column(name="user_id")
     private int userId;
 
-    @Column(name="concert_venue_id")
-    private int concertVenueId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user")
+    private User user;
 
-    public int getId() {
-        return id;
+    public int getConAdmid() {
+        return conAdmid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setConAdmid(int conAdmid) {
+        this.conAdmid = conAdmid;
     }
 
     public int getUserId() {
@@ -37,11 +41,12 @@ public class ConAdm {
         this.userId = userId;
     }
 
-    public int getConcertVenueId() {
-        return concertVenueId;
+    public User getUser() {
+        return user;
     }
 
-    public void setConcertVenueId(int concertVenueId) {
-        this.concertVenueId = concertVenueId;
+    public void setUser(User user) {
+        this.user = user;
     }
+   
 }

@@ -8,12 +8,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="User")
+@Table(name="user")
 public class User {
     @Id
-    @Column(name="Id")
+    @Column(name="user_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int userId;
 
     @Column(name="login")
     private String login;
@@ -30,15 +30,13 @@ public class User {
     @Column(name="user_type")
     private String userType;
 
-    @Column(name="type_id")
-    private int typeId;
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getLogin() {
@@ -81,11 +79,5 @@ public class User {
         this.userType = userType;
     }
 
-    public int getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(int typeId) {
-        this.typeId = typeId;
-    }
+  
 }

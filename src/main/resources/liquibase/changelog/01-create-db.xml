@@ -4,7 +4,7 @@
                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
     <changeSet id="01" author="your_name">
         <createTable tableName="user">
-            <column name="id" type="int" autoIncrement="true">
+            <column name="user_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="login" type="VARCHAR(20)"/>
@@ -12,8 +12,7 @@
             <column name="email" type="VARCHAR(20)"/>
             <column name="about" type="VARCHAR(256)"/>
             <column name="user_type" type="VARCHAR(20)"/>
-            <column name="type_id" type="int"/>
-        </createTable>
+        </createTable>     
         <createTable tableName="genres">
             <column name="genre_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -21,8 +20,7 @@
             <column name="genre_name" type="VARCHAR(20)">
                 <constraints nullable="false"/>
         </column>
-        </createTable>
-
+        </createTable>     
         <createTable tableName="instruments">
             <column name="inst_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -30,7 +28,7 @@
             <column name="inst_name" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-        </createTable>
+        </createTable>   
         <createTable tableName="musician">
             <column name="musician_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -41,4 +39,139 @@
         </createTable>
             <addForeignKeyConstraint baseTableName="musician" baseColumnNames="user_id"
                 constraintName="user_id_fk1"
-                referencedTableName="user" referencedColumnNames="user_id"/>
+                referencedTableName="user" referencedColumnNames="user_id"/>      
+        <createTable tableName="con_adm">
+            <column name="con_adm_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+            <addForeignKeyConstraint baseTableName="con_adm" baseColumnNames="user_id"
+                constraintName="user_id_fk2"
+                referencedTableName="user" referencedColumnNames="user_id"/>       
+        <createTable tableName="rep_adm">
+            <column name="rep_adm_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+            <addForeignKeyConstraint baseTableName="rep_adm" baseColumnNames="user_id"
+                constraintName="user_id_fk3"
+                referencedTableName="user" referencedColumnNames="user_id"/>       
+        <createTable tableName="bands">
+            <column name="band_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="band_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="genre_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="bands" baseColumnNames="genre_id"
+                constraintName="genre_id_fk4"
+                referencedTableName="genres" referencedColumnNames="genre_id"/>
+        <createTable tableName="rep_base">
+            <column name="rep_base_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="rep_base_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rep_base_address" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rep_base_about" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rep_adm_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="rep_base" baseColumnNames="rep_adm_id"
+                constraintName="rep_adm_id_fk5"
+                referencedTableName="rep_adm" referencedColumnNames="rep_adm_id"/>
+        <createTable tableName="con_ven">
+            <column name="con_ven_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="con_ven_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="con_ven_address" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="con_ven_about" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="con_adm_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="con_ven" baseColumnNames="con_adm_id"
+                constraintName="con_adm_id_fk7"
+                referencedTableName="con_adm" referencedColumnNames="con_adm_id"/>
+        <createTable tableName="musician_bands">
+            <column name="musician_bands_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="musician_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="genre_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="band_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="musician_bands" baseColumnNames="genre_id"
+                constraintName="genre_id_fk9"
+                referencedTableName="genres" referencedColumnNames="genre_id"/>
+        <addForeignKeyConstraint baseTableName="musician_bands" baseColumnNames="musician_id"
+                constraintName="musician_id_fk11"
+                referencedTableName="musician" referencedColumnNames="musician_id"/>
+        <addForeignKeyConstraint baseTableName="musician_bands" baseColumnNames="band_id"
+                constraintName="band_id_fk12"
+                referencedTableName="bands" referencedColumnNames="band_id"/>
+        <createTable tableName="musician_genres">
+            <column name="musician_genres_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="genre_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="musician_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="musician_genres" baseColumnNames="genre_id"
+                constraintName="genre_id_fk13"
+                referencedTableName="genres" referencedColumnNames="genre_id"/>
+        <addForeignKeyConstraint baseTableName="musician_genres" baseColumnNames="musician_id"
+                constraintName="musician_id_fk15"
+                referencedTableName="musician" referencedColumnNames="musician_id"/>
+        <createTable tableName="musician_instruments">
+            <column name="musician_instruments_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="inst_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="musician_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="musician_instruments" baseColumnNames="inst_id"
+                constraintName="inst_id_fk16"
+                referencedTableName="instruments" referencedColumnNames="inst_id"/>
+        <addForeignKeyConstraint baseTableName="musician_instruments" baseColumnNames="musician_id"
+                constraintName="musician_id_fk18"
+                referencedTableName="musician" referencedColumnNames="musician_id"/>
+    </changeSet>
+</databaseChangeLog>

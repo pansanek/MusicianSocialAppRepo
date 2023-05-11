@@ -1,60 +1,87 @@
 package com.potemkin.musiciansocialapp.models;
 
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="con_venue")
+@Table(name="con_ven")
 public class ConVenue {
     @Id
-    @Column(name="Id")
+    @Column(name="con_ven_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int conVenId;
 
-    @Column(name="admin_id")
-    private int adminId;
+    @Column(name="con_ven_name")
+    private String conVenName;
 
-    @Column(name="address")
-    private String address;
+    @Column(name="con_ven_address")
+    private String conVenAddress;
 
-    @Column(name="venue_info")
-    private String venueInfo;
+    @Column(name="con_ven_about")
+    private String conVenAbout;
+    
+    @Column(name="con_adm_id")
+    private int conAdmId;
 
-    public int getId() {
-        return id;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "con_adm")
+    private ConAdm conAdm;
+
+    public int getConVenId() {
+        return conVenId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setConVenId(int conVenId) {
+        this.conVenId = conVenId;
     }
 
-    public int getAdminId() {
-        return adminId;
+    public String getConVenName() {
+        return conVenName;
     }
 
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
+    public void setConVenName(String conVenName) {
+        this.conVenName = conVenName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getConVenAddress() {
+        return conVenAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setConVenAddress(String conVenAddress) {
+        this.conVenAddress = conVenAddress;
     }
 
-    public String getVenueInfo() {
-        return venueInfo;
+    public String getConVenAbout() {
+        return conVenAbout;
     }
 
-    public void setVenueInfo(String venueInfo) {
-        this.venueInfo = venueInfo;
+    public void setConVenAbout(String conVenAbout) {
+        this.conVenAbout = conVenAbout;
     }
+
+    public int getConAdmId() {
+        return conAdmId;
+    }
+
+    public void setConAdmId(int conAdmId) {
+        this.conAdmId = conAdmId;
+    }
+
+    public ConAdm getConAdm() {
+        return conAdm;
+    }
+
+    public void setConAdm(ConAdm conAdm) {
+        this.conAdm = conAdm;
+    }
+
+    
 
 }

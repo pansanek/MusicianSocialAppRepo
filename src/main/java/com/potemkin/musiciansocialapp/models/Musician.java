@@ -1,40 +1,36 @@
 package com.potemkin.musiciansocialapp.models;
 
-import java.util.List;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Musician")
+@Table(name="musician")
 public class Musician {
     @Id
-    @Column(name="Id")
+    @Column(name="musician_id",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int musicianId;
 
     @Column(name="user_id")
     private int userId;
 
-    @Column(name="band_id")
-    private int bandId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user")
+    private User user;
 
-    @Column(name="genres")
-    private List<String> genres;
-
-    @Column(name="instruments")
-    private List<String> instruments;
-
-    public int getId() {
-        return id;
+    public int getMusicianId() {
+        return musicianId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setMusicianId(int musicianId) {
+        this.musicianId = musicianId;
     }
 
     public int getUserId() {
@@ -45,28 +41,12 @@ public class Musician {
         this.userId = userId;
     }
 
-    public int getBandId() {
-        return bandId;
+    public User getUser() {
+        return user;
     }
 
-    public void setBandId(int bandId) {
-        this.bandId = bandId;
-    }
-
-    public List<String> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(List<String> genres) {
-        this.genres = genres;
-    }
-
-    public List<String> getInstruments() {
-        return instruments;
-    }
-
-    public void setInstruments(List<String> instruments) {
-        this.instruments = instruments;
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }

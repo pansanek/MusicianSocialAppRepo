@@ -2,7 +2,7 @@ package com.potemkin.musiciansocialapp.controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +18,6 @@ import com.potemkin.musiciansocialapp.models.Musician;
 @RequestMapping("/musician")
 public class MusicianController {
 
-    @Autowired
     MusicianRep repo;
     
     @GetMapping("/all-musicians")
