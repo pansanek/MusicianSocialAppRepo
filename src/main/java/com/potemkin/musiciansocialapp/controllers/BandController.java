@@ -2,6 +2,7 @@ package com.potemkin.musiciansocialapp.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,8 @@ import com.potemkin.musiciansocialapp.models.Band;
 @RestController
 @RequestMapping("/band")
 public class BandController {
-
+    
+    @Autowired
     BandRep repo;
     
     @GetMapping("/all-bands")
@@ -32,8 +34,8 @@ public class BandController {
     }
     
     @GetMapping("/delete-band")
-    public Band deleteBand(@RequestParam(name="id") Integer id){
-        Band band = repo.findBandById(id);
+    public Band deleteBand(@RequestParam(name="band_id") Integer id){
+        Band band = repo.findBandByBandId(id);
         repo.delete(band);
         return band;
     }

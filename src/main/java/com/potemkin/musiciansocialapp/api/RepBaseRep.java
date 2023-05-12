@@ -7,6 +7,6 @@ import com.potemkin.musiciansocialapp.models.RepBase;
 
 public interface RepBaseRep extends CrudRepository<RepBase,Integer>{
     
-    public RepBase findRepBaseById(Integer id);
+    public RepBase findRepBaseByRepBaseId(Integer repBaseId);
 
 }

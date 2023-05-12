@@ -16,37 +16,26 @@ public class RepAdm {
     @Id
     @Column(name="rep_adm_id",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int repAdmid;
+    private int repAdmId;
 
-    public int getRepAdmid() {
-        return repAdmid;
+    public int getRepAdmId() {
+        return repAdmId;
     }
 
-    public void setRepAdmid(int repAdmid) {
-        this.repAdmid = repAdmid;
+    public void setRepAdmId(int repAdmId) {
+        this.repAdmId = repAdmId;
     }
 
-    public int getUserId() {
-        return userId;
+    public Users getUser() {
+        return users;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(Users users) {
+        this.users = users;
     }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Column(name="user_id")
-    private int userId;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user")
-    private User user;
+    @JoinColumn(name = "users_id")
+    private Users users;
 
 }

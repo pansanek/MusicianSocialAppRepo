@@ -13,25 +13,25 @@ public class Instruments {
     @Id
     @Column(name="inst_id",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int inst_Id;
+    private int instId;
 
     @Column(name="inst_name")
-    private String inst_Name;
+    private String instName;
 
     public int getInstId() {
-        return inst_Id;
+        return instId;
     }
 
-    public void setInstId(int inst_Id) {
-        this.inst_Id = inst_Id;
+    public void setInstId(int instId) {
+        this.instId = instId;
     }
 
     public String getInstName() {
-        return inst_Name;
+        return instName;
     }
 
-    public void setInstName(String inst_Name) {
-        this.inst_Name = inst_Name;
+    public void setInstName(String instName) {
+        this.instName = instName;
     }
 
     

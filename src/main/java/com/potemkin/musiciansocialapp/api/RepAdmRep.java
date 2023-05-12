@@ -7,6 +7,6 @@ import com.potemkin.musiciansocialapp.models.RepAdm;
 
 public interface RepAdmRep extends CrudRepository<RepAdm,Integer>{
 
-    public RepAdm findRepAdmById(Integer id);
+    public RepAdm findRepAdmByRepAdmId(Integer repAdmId);
 
 }

@@ -7,6 +7,6 @@ import com.potemkin.musiciansocialapp.models.ConVenue;
 
 public interface ConVenueRep extends CrudRepository<ConVenue,Integer>{
     
-    public ConVenue findConVenueById(Integer id);
+    public ConVenue findConVenueByConVenId(Integer conVenId);
 
 }

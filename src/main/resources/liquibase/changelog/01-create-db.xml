@@ -3,15 +3,15 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
     <changeSet id="01" author="your_name">
-        <createTable tableName="user">
-            <column name="user_id" type="int" autoIncrement="true">
+        <createTable tableName="users">
+            <column name="users_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="login" type="VARCHAR(20)"/>
             <column name="password" type="VARCHAR(20)"/>
             <column name="email" type="VARCHAR(20)"/>
             <column name="about" type="VARCHAR(256)"/>
-            <column name="user_type" type="VARCHAR(20)"/>
+            <column name="users_type" type="VARCHAR(20)"/>
         </createTable>     
         <createTable tableName="genres">
             <column name="genre_id" type="int" autoIncrement="true">
@@ -33,35 +33,35 @@
             <column name="musician_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="user_id" type="int">
+            <column name="users_id" type="int">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-            <addForeignKeyConstraint baseTableName="musician" baseColumnNames="user_id"
-                constraintName="user_id_fk1"
-                referencedTableName="user" referencedColumnNames="user_id"/>      
+            <addForeignKeyConstraint baseTableName="musician" baseColumnNames="users_id"
+                constraintName="users_id_fk1"
+                referencedTableName="users" referencedColumnNames="users_id"/>      
         <createTable tableName="con_adm">
             <column name="con_adm_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="user_id" type="int">
+            <column name="users_id" type="int">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-            <addForeignKeyConstraint baseTableName="con_adm" baseColumnNames="user_id"
-                constraintName="user_id_fk2"
-                referencedTableName="user" referencedColumnNames="user_id"/>       
+            <addForeignKeyConstraint baseTableName="con_adm" baseColumnNames="users_id"
+                constraintName="users_id_fk2"
+                referencedTableName="users" referencedColumnNames="users_id"/>       
         <createTable tableName="rep_adm">
             <column name="rep_adm_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="user_id" type="int">
+            <column name="users_id" type="int">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-            <addForeignKeyConstraint baseTableName="rep_adm" baseColumnNames="user_id"
-                constraintName="user_id_fk3"
-                referencedTableName="user" referencedColumnNames="user_id"/>       
+            <addForeignKeyConstraint baseTableName="rep_adm" baseColumnNames="users_id"
+                constraintName="users_id_fk3"
+                referencedTableName="users" referencedColumnNames="users_id"/>       
         <createTable tableName="bands">
             <column name="band_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>

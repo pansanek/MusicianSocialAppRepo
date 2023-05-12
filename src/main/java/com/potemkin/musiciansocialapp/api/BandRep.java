@@ -6,6 +6,6 @@ import com.potemkin.musiciansocialapp.models.Band;
 
 public interface BandRep extends CrudRepository<Band,Integer>{
     
-    Band findBandById(Integer id);
+    Band findBandByBandId(Integer bandId);
 
 }

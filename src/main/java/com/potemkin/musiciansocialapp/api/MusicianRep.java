@@ -7,6 +7,6 @@ import com.potemkin.musiciansocialapp.models.Musician;
 
 public interface MusicianRep extends CrudRepository<Musician,Integer>{
     
-    public Musician findMusicianById(Integer id);
+    public Musician findMusicianByMusicianId(Integer musicianId);
 
 }

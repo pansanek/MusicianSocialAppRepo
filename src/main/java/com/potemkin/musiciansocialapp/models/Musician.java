@@ -18,12 +18,9 @@ public class Musician {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int musicianId;
 
-    @Column(name="user_id")
-    private int userId;
-
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user")
-    private User user;
+    @JoinColumn(name = "users_id")
+    private Users users;
 
     public int getMusicianId() {
         return musicianId;
@@ -33,20 +30,12 @@ public class Musician {
         this.musicianId = musicianId;
     }
 
-    public int getUserId() {
-        return userId;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
 }

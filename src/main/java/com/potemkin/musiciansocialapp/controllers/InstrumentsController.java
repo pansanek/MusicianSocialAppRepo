@@ -2,7 +2,7 @@ package com.potemkin.musiciansocialapp.controllers;
 
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +17,8 @@ import com.potemkin.musiciansocialapp.models.Instruments;
 @RestController
 @RequestMapping("/instruments")
 public class InstrumentsController {
-
+    
+    @Autowired
     InstrumentsRep repo;
     
     @GetMapping("/all-instruments")
@@ -33,8 +34,8 @@ public class InstrumentsController {
     }
     
     @GetMapping("/delete-Instruments")
-    public Instruments deleteInstruments(@RequestParam(name="id") Integer id){
-        Instruments Instruments = repo.findInstrumentsById(id);
+    public Instruments deleteInstruments(@RequestParam(name="inst_id") Integer id){
+        Instruments Instruments = repo.findInstrumentsByInstId(id);
         repo.delete(Instruments);
         return Instruments;
     }

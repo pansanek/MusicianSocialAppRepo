@@ -2,7 +2,7 @@ package com.potemkin.musiciansocialapp.controllers;
 
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +17,8 @@ import com.potemkin.musiciansocialapp.models.ConAdm;
 @RestController
 @RequestMapping("/con_adm")
 public class ConAdmController {
-
+    
+    @Autowired
     ConAdmRep repo;
     
     @GetMapping("/all-con_adm")
@@ -33,8 +34,8 @@ public class ConAdmController {
     }
     
     @GetMapping("/delete-con_adm")
-    public ConAdm deleteConAdm(@RequestParam(name="id") Integer id){
-        ConAdm conAdm = repo.findConAdmById(id);
+    public ConAdm deleteConAdm(@RequestParam(name="con_adm_id") Integer id){
+        ConAdm conAdm = repo.findConAdmByConAdmId(id);
         repo.delete(conAdm);
         return conAdm;
     }

@@ -16,53 +16,23 @@ public class MusicianGenres {
     @Id
     @Column(name="musician_genres_id",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int musiciangenresId;
-
-    @Column(name="musician_id")
-    private int musicianId;
-
-    @Column(name="genre_id")
-    private int genreId;
+    private int musicianGenresId;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "musician")
+    @JoinColumn(name = "musician_id")
     private Musician musician;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "genres")
+    @JoinColumn(name = "genre_id")
     private Genres genres;
 
 
     public int getMusiciangenresId() {
-        return musiciangenresId;
+        return musicianGenresId;
     }
 
-    public void setMusiciangenresId(int musiciangenresId) {
-        this.musiciangenresId = musiciangenresId;
-    }
-
-    public int getMusicianId() {
-        return musicianId;
-    }
-
-    public void setMusicianId(int musicianId) {
-        this.musicianId = musicianId;
-    }
-
-    public int getgenreId() {
-        return genreId;
-    }
-
-    public void setgenreId(int genreId) {
-        this.genreId = genreId;
-    }
-
-    public int getGenreId() {
-        return genreId;
-    }
-
-    public void setGenreId(int genreId) {
-        this.genreId = genreId;
+    public void setMusiciangenresId(int musicianGenresId) {
+        this.musicianGenresId = musicianGenresId;
     }
 
     public Musician getMusician() {

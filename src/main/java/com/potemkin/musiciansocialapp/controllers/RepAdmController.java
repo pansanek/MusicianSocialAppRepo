@@ -2,7 +2,7 @@ package com.potemkin.musiciansocialapp.controllers;
 
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +17,8 @@ import com.potemkin.musiciansocialapp.models.RepAdm;
 @RestController
 @RequestMapping("/rep_adm")
 public class RepAdmController {
-
+    
+    @Autowired
     RepAdmRep repo;
     
     @GetMapping("/all-rep_adms")
@@ -33,8 +34,8 @@ public class RepAdmController {
     }
     
     @GetMapping("/delete-rep_adm")
-    public RepAdm deleteRepAdm(@RequestParam(name="id") Integer id){
-        RepAdm rep_adm = repo.findRepAdmById(id);
+    public RepAdm deleteRepAdm(@RequestParam(name="rep_adm_id") Integer id){
+        RepAdm rep_adm = repo.findRepAdmByRepAdmId(id);
         repo.delete(rep_adm);
         return rep_adm;
     }

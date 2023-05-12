@@ -26,12 +26,9 @@ public class ConVenue {
 
     @Column(name="con_ven_about")
     private String conVenAbout;
-    
-    @Column(name="con_adm_id")
-    private int conAdmId;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "con_adm")
+    @JoinColumn(name = "con_adm_id")
     private ConAdm conAdm;
 
     public int getConVenId() {
@@ -64,14 +61,6 @@ public class ConVenue {
 
     public void setConVenAbout(String conVenAbout) {
         this.conVenAbout = conVenAbout;
-    }
-
-    public int getConAdmId() {
-        return conAdmId;
-    }
-
-    public void setConAdmId(int conAdmId) {
-        this.conAdmId = conAdmId;
     }
 
     public ConAdm getConAdm() {

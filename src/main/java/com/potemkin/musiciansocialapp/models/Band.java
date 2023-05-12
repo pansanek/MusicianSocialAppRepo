@@ -21,9 +21,6 @@ public class Band {
     @Column(name="band_name")
     private String bandName;
 
-    @Column(name="genre_id")
-    private int genreId;
-
     public int getBandId() {
         return bandId;
     }
@@ -40,14 +37,6 @@ public class Band {
         this.bandName = bandName;
     }
 
-    public int getGenreId() {
-        return genreId;
-    }
-
-    public void setGenreId(int genreId) {
-        this.genreId = genreId;
-    }
-
     public Genres getGenres() {
         return genres;
     }
@@ -57,6 +46,6 @@ public class Band {
     }
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "genres")
+    @JoinColumn(name = "genre_id")
     private Genres genres;
 }

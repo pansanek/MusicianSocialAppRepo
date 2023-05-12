@@ -2,7 +2,7 @@ package com.potemkin.musiciansocialapp.controllers;
 
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,12 +18,13 @@ import com.potemkin.musiciansocialapp.models.Genres;
 @RequestMapping("/genres")
 public class GenresController {
 
+    @Autowired
     GenresRep repo;
     
     @GetMapping("/all-genres")
     public List<Genres> getAllGenress(){
-        List<Genres> Genress = (List<Genres>) repo.findAll();
-        return Genress;
+        List<Genres> Genres = (List<Genres>) repo.findAll();
+        return Genres;
     }
     
     @PostMapping("/create-genre")
@@ -33,8 +34,8 @@ public class GenresController {
     }
     
     @GetMapping("/delete-genre")
-    public Genres deleteGenres(@RequestParam(name="id") Integer id){
-        Genres genre = repo.findGenresById(id);
+    public Genres deleteGenres(@RequestParam(name="genre_id") Integer id){
+        Genres genre = repo.findGenresByGenreId(id);
         repo.delete(genre);
         return genre;
     }

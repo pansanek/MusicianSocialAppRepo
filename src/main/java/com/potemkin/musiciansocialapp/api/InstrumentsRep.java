@@ -7,6 +7,6 @@ import com.potemkin.musiciansocialapp.models.Instruments;
 
 public interface InstrumentsRep extends CrudRepository<Instruments,Integer>{
     
-    public Instruments findInstrumentsById(Integer id);
+    public Instruments findInstrumentsByInstId(Integer instId);
 
 }

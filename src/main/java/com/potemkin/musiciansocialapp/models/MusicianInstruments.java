@@ -18,18 +18,12 @@ public class MusicianInstruments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int musicianInstrumentsId;
 
-    @Column(name="musician_id")
-    private int musicianId;
-
-    @Column(name="inst_id")
-    private int instId;
-
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "musician")
+    @JoinColumn(name = "musician_id")
     private Musician musician;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "instruments")
+    @JoinColumn(name = "inst_id")
     private Instruments instruments;
 
     public int getMusicianInstrumentsId() {
@@ -38,22 +32,6 @@ public class MusicianInstruments {
 
     public void setMusicianInstrumentsId(int musicianInstrumentsId) {
         this.musicianInstrumentsId = musicianInstrumentsId;
-    }
-
-    public int getMusicianId() {
-        return musicianId;
-    }
-
-    public void setMusicianId(int musicianId) {
-        this.musicianId = musicianId;
-    }
-
-    public int getInstId() {
-        return instId;
-    }
-
-    public void setInstId(int instId) {
-        this.instId = instId;
     }
 
     public Musician getMusician() {

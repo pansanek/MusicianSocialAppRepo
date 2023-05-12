@@ -2,6 +2,7 @@ package com.potemkin.musiciansocialapp.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,8 @@ import com.potemkin.musiciansocialapp.models.ConVenue;
 @RestController
 @RequestMapping("/con_venue")
 public class ConVenueController {
-
+    
+    @Autowired
     ConVenueRep repo;
     
     @GetMapping("/all-con_venue")
@@ -32,8 +34,8 @@ public class ConVenueController {
     }
     
     @GetMapping("/delete-con_venue")
-    public ConVenue deleteConVenue(@RequestParam(name="id") Integer id){
-        ConVenue con_venue = repo.findConVenueById(id);
+    public ConVenue deleteConVenue(@RequestParam(name="con_venue_id") Integer id){
+        ConVenue con_venue = repo.findConVenueByConVenId(id);
         repo.delete(con_venue);
         return con_venue;
     }

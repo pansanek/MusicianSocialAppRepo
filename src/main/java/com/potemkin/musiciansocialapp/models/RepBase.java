@@ -27,11 +27,8 @@ public class RepBase {
     @Column(name="rep_base_about")
     private String repBaseAbout;
     
-    @Column(name="rep_adm_id")
-    private int repAdmId;
-
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "rep_adm")
+    @JoinColumn(name = "rep_adm_id")
     private RepAdm repAdm;
 
     public int getRepBaseId() {
@@ -64,14 +61,6 @@ public class RepBase {
 
     public void setRepBaseAbout(String repBaseAbout) {
         this.repBaseAbout = repBaseAbout;
-    }
-
-    public int getRepAdmId() {
-        return repAdmId;
-    }
-
-    public void setRepAdmId(int repAdmId) {
-        this.repAdmId = repAdmId;
     }
 
     public RepAdm getRepAdm() {

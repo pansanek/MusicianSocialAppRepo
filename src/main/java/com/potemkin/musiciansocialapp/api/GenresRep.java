@@ -7,6 +7,6 @@ import com.potemkin.musiciansocialapp.models.Genres;
 
 public interface GenresRep extends CrudRepository<Genres,Integer>{
     
-    public Genres findGenresById(Integer id);
+    public Genres findGenresByGenreId(Integer genreId);
 
 }
