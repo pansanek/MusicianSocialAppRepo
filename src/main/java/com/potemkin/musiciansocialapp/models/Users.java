@@ -21,6 +21,9 @@ public class Users {
     @Column(name="password")
     private String password;
 
+    @Column(name="name")
+    private String name;
+
     @Column(name="email")
     private String email;
 
@@ -30,6 +33,13 @@ public class Users {
     @Column(name="users_type")
     private String usersType;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getUsersId() {
         return usersId;
