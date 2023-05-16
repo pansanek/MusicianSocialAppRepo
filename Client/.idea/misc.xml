@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/alexp/AndroidStudioProjects/MusicianSocialMobileApp/app/src/main/res/drawable/ic_comment.xml" value="0.1935" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MusicianSocialMobileApp/app/src/main/res/layout/activity_all_musician.xml" value="0.14130434782608695" />
-        <entry key="..\:/Users/alexp/AndroidStudioProjects/MusicianSocialMobileApp/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/alexp/AndroidStudioProjects/MusicianSocialMobileApp/app/src/main/res/layout/activity_chat.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/alexp/AndroidStudioProjects/MusicianSocialMobileApp/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/alexp/AndroidStudioProjects/MusicianSocialMobileApp/app/src/main/res/layout/activity_map.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MusicianSocialMobileApp/app/src/main/res/layout/activity_user_page.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MusicianSocialMobileApp/app/src/main/res/layout/musician_card.xml" value="0.1" />
+        <entry key="..\:/Users/alexp/AndroidStudioProjects/MusicianSocialMobileApp/app/src/main/res/menu/my_navigation_items.xml" value="0.2" />
       </map>
     </option>
   </component>

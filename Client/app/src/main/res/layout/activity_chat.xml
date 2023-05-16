@@ -4,14 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AllMusicianActivity">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:itemCount="5"
-        tools:listitem="@layout/musician_card" />
+    tools:context=".ChatActivity">
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -19,7 +12,8 @@
         android:layout_marginEnd="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        >
 
 
         <LinearLayout
@@ -39,13 +33,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_star" />
+                app:srcCompat="@drawable/ic_star_outline" />
             <ImageView
                 android:id="@+id/ic_chat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_comment_outline" />
+                app:srcCompat="@drawable/ic_comment" />
             <ImageView
                 android:id="@+id/ic_profile"
                 android:layout_width="wrap_content"

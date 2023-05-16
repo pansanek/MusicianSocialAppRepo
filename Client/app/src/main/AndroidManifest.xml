@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MusicianSocialMobileApp">
         <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MapActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserPageActivity"
             android:exported="false" />
         <activity
