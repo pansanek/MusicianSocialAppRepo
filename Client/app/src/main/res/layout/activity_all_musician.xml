@@ -33,6 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="MapClick"
                 app:srcCompat="@drawable/ic_map_outline" />
             <ImageView
                 android:id="@+id/ic_star"
@@ -45,12 +46,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="ChatClick"
                 app:srcCompat="@drawable/ic_comment_outline" />
             <ImageView
                 android:id="@+id/ic_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="ProfileClick"
                 app:srcCompat="@drawable/ic_user_outline" />
 
         </LinearLayout>

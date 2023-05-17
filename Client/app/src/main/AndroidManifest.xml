@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MusicianSocialMobileApp">
         <activity
+            android:name=".registration.PlaceRegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".registration.MusRegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".registration.RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".registration.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatActivity"
             android:exported="false" />
         <activity

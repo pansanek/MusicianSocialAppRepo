@@ -3,6 +3,7 @@ package com.potemkin.musiciansocialmobileapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -67,5 +68,16 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
         startActivity(i)
 
     }
-
+    fun ProfileClick(view: View) {
+        val i = Intent(this, UserPageActivity::class.java)
+        startActivity(i)
+    }
+    fun ChatClick(view: View) {
+        val i = Intent(this, ChatActivity::class.java)
+        startActivity(i)
+    }
+    fun MapClick(view: View) {
+        val i = Intent(this, MainActivity::class.java)
+        startActivity(i)
+    }
 }
