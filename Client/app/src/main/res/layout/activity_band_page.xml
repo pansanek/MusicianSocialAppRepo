@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_red"
-    tools:context=".UserPageActivity">
+    tools:context=".BandPageActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView2"
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_user" />
+                app:srcCompat="@drawable/ic_user_outline" />
 
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
@@ -134,7 +134,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="16dp"
-                android:text="Instrument: "
+                android:text="Members: "
                 app:layout_constraintBottom_toTopOf="@+id/genres"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"

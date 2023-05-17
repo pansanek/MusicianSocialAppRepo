@@ -37,6 +37,13 @@
                 android:onClick="AllMusicianClick"
                 app:srcCompat="@drawable/ic_star_outline" />
             <ImageView
+                android:id="@+id/ic_band"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="AllBandClick"
+                app:srcCompat="@drawable/ic_baseline_group" />
+            <ImageView
                 android:id="@+id/ic_chat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

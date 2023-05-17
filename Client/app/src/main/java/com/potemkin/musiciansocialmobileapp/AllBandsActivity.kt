@@ -1,49 +1,45 @@
 package com.potemkin.musiciansocialmobileapp
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.potemkin.musiciansocialmobileapp.models.BandModel
 import com.potemkin.musiciansocialmobileapp.models.MusicianModel
 import com.potemkin.musiciansocialmobileapp.models.UserModel
 import kotlinx.android.synthetic.main.activity_all_musician.*
 import org.json.JSONArray
 import org.json.JSONObject
-import java.util.*
-import kotlin.collections.ArrayList
 
-
-class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickListener {
+class AllBandsActivity : AppCompatActivity(), BandAdapter.OnItemClickListener  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_all_musician)
-        var test1 = MusicianModel(1,"1","Саша","Nu-Metalcore","Drums")
-        var test2 = MusicianModel(1,"2","Ник","Metalcore","Guitar")
-        val items: ArrayList<MusicianModel> = ArrayList()
+        setContentView(R.layout.activity_all_bands)
+        var test1 = BandModel(1,"1","Cohen_noise")
+        var test2 = BandModel(1,"2","Knocked Loose",)
+        val items: ArrayList<BandModel> = ArrayList()
         items.add(test1)
         items.add(test2)
 
         rvList.layoutManager = LinearLayoutManager(this)
 
-        val itemAdapter = MusicianAdapter(this, items, this)
+        val itemAdapter = BandAdapter(this, items, this)
 
         rvList.adapter = itemAdapter
 
     }
 
-    override fun onItemClick(item: ArrayList<MusicianModel>, position: Int) {
+    override fun onItemClick(item: ArrayList<BandModel>, position: Int) {
         Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show()
         val i = Intent(this, UserPageActivity::class.java).apply {
 
             putExtra("image", item[position].icon_url)
             putExtra("name", item[position].name)
-            putExtra("desc", item[position].genres)
-            putExtra("url", item[position].instruments)
         }
         startActivity(i)
 
@@ -58,10 +54,6 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
     }
     fun MapClick(view: View) {
         val i = Intent(this, MainActivity::class.java)
-        startActivity(i)
-    }
-    fun AllBandClick(view: View) {
-        val i = Intent(this, AllBandsActivity::class.java)
         startActivity(i)
     }
 

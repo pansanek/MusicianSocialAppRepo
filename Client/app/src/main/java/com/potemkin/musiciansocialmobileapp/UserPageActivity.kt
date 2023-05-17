@@ -25,4 +25,9 @@ class UserPageActivity : AppCompatActivity() {
         val i = Intent(this, MainActivity::class.java)
         startActivity(i)
     }
+
+    fun AllBandClick(view: View) {
+        val i = Intent(this, AllBandsActivity::class.java)
+        startActivity(i)
+    }
 }
