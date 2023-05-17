@@ -1,21 +1,15 @@
 package com.potemkin.musiciansocialmobileapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.content.Intent
 import android.view.View
-import kotlinx.android.synthetic.main.activity_user_page.*
 
-class UserPageActivity : AppCompatActivity() {
+class ProfilePageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user_page)
-        lg_tv.text = intent.getStringExtra("name")
-        instrument.text = "Instrument: " + intent.getStringExtra("instrument")
-        genres.text = "Genres: " +intent.getStringExtra("genre")
-
+        setContentView(R.layout.activity_profile_page)
     }
-
     fun ChatClick(view: View) {
         val i = Intent(this, ChatActivity::class.java)
         startActivity(i)
@@ -23,11 +17,6 @@ class UserPageActivity : AppCompatActivity() {
 
     fun AllMusicianClick(view: View) {
         val i = Intent(this, AllMusicianActivity::class.java)
-        startActivity(i)
-    }
-
-    fun ProfileClick(view: View) {
-        val i = Intent(this, ProfilePageActivity::class.java)
         startActivity(i)
     }
 

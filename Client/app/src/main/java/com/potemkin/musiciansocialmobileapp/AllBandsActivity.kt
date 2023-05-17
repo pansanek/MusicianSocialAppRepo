@@ -10,9 +10,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.potemkin.musiciansocialmobileapp.models.BandModel
-import com.potemkin.musiciansocialmobileapp.models.MusicianModel
-import com.potemkin.musiciansocialmobileapp.models.UserModel
-import kotlinx.android.synthetic.main.activity_all_musician.*
+import kotlinx.android.synthetic.main.activity_all_bands.*
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -20,23 +18,22 @@ class AllBandsActivity : AppCompatActivity(), BandAdapter.OnItemClickListener  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_bands)
-        var test1 = BandModel(1,"1","Cohen_noise")
-        var test2 = BandModel(1,"2","Knocked Loose",)
+        var test1 = BandModel("Cohen_noise","1")
+        var test2 = BandModel("Knocked Loose","2")
         val items: ArrayList<BandModel> = ArrayList()
         items.add(test1)
         items.add(test2)
 
-        rvList.layoutManager = LinearLayoutManager(this)
+        rvBands.layoutManager = LinearLayoutManager(this)
 
         val itemAdapter = BandAdapter(this, items, this)
 
-        rvList.adapter = itemAdapter
+        rvBands.adapter = itemAdapter
 
     }
 
     override fun onItemClick(item: ArrayList<BandModel>, position: Int) {
-        Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show()
-        val i = Intent(this, UserPageActivity::class.java).apply {
+        val i = Intent(this, BandPageActivity::class.java).apply {
 
             putExtra("image", item[position].icon_url)
             putExtra("name", item[position].name)
@@ -45,7 +42,7 @@ class AllBandsActivity : AppCompatActivity(), BandAdapter.OnItemClickListener  {
 
     }
     fun ProfileClick(view: View) {
-        val i = Intent(this, UserPageActivity::class.java)
+        val i = Intent(this, ProfilePageActivity::class.java)
         startActivity(i)
     }
     fun ChatClick(view: View) {
@@ -53,13 +50,16 @@ class AllBandsActivity : AppCompatActivity(), BandAdapter.OnItemClickListener  {
         startActivity(i)
     }
     fun MapClick(view: View) {
-        val i = Intent(this, MainActivity::class.java)
+        val i = Intent(this, MapActivity::class.java)
         startActivity(i)
     }
-
-    fun getJson(): ArrayList<UserModel> {
+    fun AllMusicianClick(view: View) {
+        val i = Intent(this, AllMusicianActivity::class.java)
+        startActivity(i)
+    }
+    fun getJson(): ArrayList<BandModel> {
         val url = "http://localhost:8081/musician/all-musicians"
-        val itemList: ArrayList<UserModel> = ArrayList()
+        val itemList: ArrayList<BandModel> = ArrayList()
         val queue = Volley.newRequestQueue(this)
         val req = StringRequest(Request.Method.GET, url, { response ->
             val data = response.toString()
@@ -69,10 +69,9 @@ class AllBandsActivity : AppCompatActivity(), BandAdapter.OnItemClickListener  {
             for (i in 0 .. itemsArray.length()) {
                 val item = itemsArray.getJSONObject(i)
 
-                val email = item.getString("email")
-                val password = item.getString("password")
+                val name = item.getString("name")
 
-                val itemsDetails = UserModel(email,password)
+                val itemsDetails = BandModel(name, "icon_url")
 
                 itemList.add(itemsDetails)
 

@@ -14,7 +14,6 @@ import com.potemkin.musiciansocialmobileapp.models.UserModel
 import kotlinx.android.synthetic.main.activity_all_musician.*
 import org.json.JSONArray
 import org.json.JSONObject
-import java.util.*
 import kotlin.collections.ArrayList
 
 
@@ -22,8 +21,8 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_musician)
-        var test1 = MusicianModel(1,"1","Саша","Nu-Metalcore","Drums")
-        var test2 = MusicianModel(1,"2","Ник","Metalcore","Guitar")
+        var test1 = MusicianModel("1","Саша","Nu-Metalcore","Drums")
+        var test2 = MusicianModel("2","Ник","Metalcore","Guitar")
         val items: ArrayList<MusicianModel> = ArrayList()
         items.add(test1)
         items.add(test2)
@@ -42,14 +41,14 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
 
             putExtra("image", item[position].icon_url)
             putExtra("name", item[position].name)
-            putExtra("desc", item[position].genres)
-            putExtra("url", item[position].instruments)
+            putExtra("genre", item[position].genres)
+            putExtra("instrument", item[position].instruments)
         }
         startActivity(i)
 
     }
     fun ProfileClick(view: View) {
-        val i = Intent(this, UserPageActivity::class.java)
+        val i = Intent(this, ProfilePageActivity::class.java)
         startActivity(i)
     }
     fun ChatClick(view: View) {
@@ -57,7 +56,7 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
         startActivity(i)
     }
     fun MapClick(view: View) {
-        val i = Intent(this, MainActivity::class.java)
+        val i = Intent(this, MapActivity::class.java)
         startActivity(i)
     }
     fun AllBandClick(view: View) {
@@ -80,7 +79,7 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
                 val email = item.getString("email")
                 val password = item.getString("password")
 
-                val itemsDetails = UserModel(email,password)
+                val itemsDetails = UserModel(email,password,"","")
 
                 itemList.add(itemsDetails)
 

@@ -4,11 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import kotlinx.android.synthetic.main.activity_band_page.*
 
 class BandPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_band_page)
+        lg_tv.text = intent.getStringExtra("name")
     }
 
     fun ChatClick(view: View) {
@@ -22,7 +24,7 @@ class BandPageActivity : AppCompatActivity() {
     }
 
     fun MapClick(view: View) {
-        val i = Intent(this, MainActivity::class.java)
+        val i = Intent(this, MapActivity::class.java)
         startActivity(i)
     }
 

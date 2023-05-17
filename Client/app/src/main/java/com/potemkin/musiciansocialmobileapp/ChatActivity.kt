@@ -12,7 +12,7 @@ class ChatActivity : AppCompatActivity() {
     }
 
     fun ProfileClick(view: View) {
-        val i = Intent(this, UserPageActivity::class.java)
+        val i = Intent(this, ProfilePageActivity::class.java)
         startActivity(i)
     }
     fun AllMusicianClick(view: View) {
@@ -20,7 +20,7 @@ class ChatActivity : AppCompatActivity() {
         startActivity(i)
     }
     fun MapClick(view: View) {
-        val i = Intent(this, MainActivity::class.java)
+        val i = Intent(this, MapActivity::class.java)
         startActivity(i)
     }
     fun AllBandClick(view: View) {

@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".25" />
+        app:layout_constraintGuide_percent=".15" />
 
     <TextView
         android:id="@+id/app_name_tv"
@@ -61,7 +61,7 @@
 
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/regEditTextPersonName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -72,10 +72,10 @@
                 android:hint="Ваше имя"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+                app:layout_constraintTop_toBottomOf="@+id/regEditTextLogin" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/regEditTextLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -86,10 +86,10 @@
                 android:hint="Логин"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/regEditTextPassword" />
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/regEditTextEmailAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
@@ -105,7 +105,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/lg_tv" />
 
             <EditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/regEditTextPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -116,8 +116,21 @@
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+                app:layout_constraintTop_toBottomOf="@+id/regEditTextEmailAddress" />
 
+            <EditText
+                android:id="@+id/regEditTextAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:drawableStart="@drawable/ic_baseline_input_24"
+                android:drawableTint="@color/main_red"
+                android:hint="Описание"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/regEditTextPersonName" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout"
@@ -125,9 +138,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
+                app:layout_constraintEnd_toEndOf="@+id/regEditTextAbout"
+                app:layout_constraintStart_toStartOf="@+id/regEditTextAbout"
+                app:layout_constraintTop_toBottomOf="@+id/regEditTextAbout">
 
                 <AutoCompleteTextView
                     android:id="@+id/autoComplete"
@@ -140,7 +153,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/regButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="64dp"
@@ -160,7 +173,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button"
+                app:layout_constraintTop_toBottomOf="@+id/regButton"
                 app:layout_constraintVertical_bias="0.050000012">
 
                 <TextView
