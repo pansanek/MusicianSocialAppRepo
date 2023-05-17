@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.potemkin.musiciansocialmobileapp.models.MusicianModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.musician_card.view.*
 import java.util.*

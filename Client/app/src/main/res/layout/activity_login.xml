@@ -61,7 +61,7 @@
 
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/editTextEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
@@ -77,7 +77,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/lg_tv" />
 
             <EditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/editTextPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -88,10 +88,10 @@
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/loginButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="64dp"
@@ -101,7 +101,7 @@
                 app:cornerRadius="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
