@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_map" />
+                app:srcCompat="@drawable/ic_map_bold" />
 
             <ImageView
                 android:id="@+id/ic_star"
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="AllMusicianClick"
-                app:srcCompat="@drawable/ic_star_outline" />
+                app:srcCompat="@drawable/ic_user" />
 
             <ImageView
                 android:id="@+id/ic_band"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="AllBandClick"
-                app:srcCompat="@drawable/ic_baseline_group" />
+                app:srcCompat="@drawable/ic_band" />
 
             <ImageView
                 android:id="@+id/ic_chat"
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="ChatClick"
-                app:srcCompat="@drawable/ic_comment_outline" />
+                app:srcCompat="@drawable/ic_message" />
 
             <ImageView
                 android:id="@+id/ic_profile"
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="ProfileClick"
-                app:srcCompat="@drawable/ic_user_outline" />
+                app:srcCompat="@drawable/ic_profile" />
 
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
@@ -75,4 +75,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.49" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".45" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/placeInfo"
+        style="@style/custom_card_view_style"
+        android:layout_width="0dp"
+        android:backgroundTint="@color/white"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/place_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Имя"
+                android:textColor="@color/main_red"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/aboutTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:text="aboutTv"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/place_tv" />
+
+            <Button
+                android:id="@+id/closeButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="64dp"
+                android:text="Закрыть"
+
+                app:cornerRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aboutTv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

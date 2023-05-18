@@ -28,34 +28,34 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="MapClick"
-                app:srcCompat="@drawable/ic_map_outline" />
+                app:srcCompat="@drawable/ic_map" />
             <ImageView
                 android:id="@+id/ic_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="AllMusicianClick"
-                app:srcCompat="@drawable/ic_star_outline" />
+                app:srcCompat="@drawable/ic_user" />
             <ImageView
                 android:id="@+id/ic_band"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="AllBandClick"
-                app:srcCompat="@drawable/ic_baseline_group" />
+                app:srcCompat="@drawable/ic_band" />
             <ImageView
                 android:id="@+id/ic_chat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_comment" />
+                app:srcCompat="@drawable/ic_message_bold" />
             <ImageView
                 android:id="@+id/ic_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="ProfileClick"
-                app:srcCompat="@drawable/ic_user_outline" />
+                app:srcCompat="@drawable/ic_profile" />
 
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>

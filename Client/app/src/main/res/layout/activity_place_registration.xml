@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_red"
+    android:background="@color/black"
     tools:context=".registration.PlaceRegistrationActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -81,7 +81,7 @@
                 android:layout_marginTop="24dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:drawableStart="@drawable/ic_map"
+                android:drawableStart="@drawable/ic_location_bold"
                 android:drawableTint="@color/main_red"
                 android:hint="Адрес"
                 app:layout_constraintEnd_toEndOf="parent"

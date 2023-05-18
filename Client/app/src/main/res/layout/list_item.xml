@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:ellipsize="end"
     android:padding="16dp"
-    android:text="Hui"
+    android:text="list"
     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
     android:textSize="16dp">
 
