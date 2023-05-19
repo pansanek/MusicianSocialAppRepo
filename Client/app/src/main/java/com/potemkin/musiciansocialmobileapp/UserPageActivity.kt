@@ -11,6 +11,7 @@ class UserPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_page)
         lg_tv.text = intent.getStringExtra("name")
+        aboutTv.text = intent.getStringExtra("about")
         instrument.text = "Instrument: " + intent.getStringExtra("instrument")
         genres.text = "Genres: " +intent.getStringExtra("genre")
 

@@ -35,9 +35,9 @@ class LoginActivity : AppCompatActivity() {
             override fun onClick(view: View?) {
                 var editTextEmail = editTextEmail.text.toString()
                 var editTextPassword = editTextPassword.text.toString()
-                var user = UserModel(editTextEmail,editTextPassword,"","")
+                var user = UserModel(editTextEmail,editTextPassword,"","","")
                 //justfortest
-                var test = UserModel("nocturnal@ex.com","12341234","NikNoc","Nik")
+                var test = UserModel("nocturnal@ex.com","12341234","NikNoc","Nik","")
                 //for(i in 0 .. items.size){
                     if(user.email == test.email && user.password == test.password){
                         val editor = sharePreference.edit()
@@ -79,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
                 val email = item.getString("email")
                 val password = item.getString("password")
 
-                val itemsDetails = UserModel(email,password,"","")
+                val itemsDetails = UserModel(email,password,"","","")
 
                 itemList.add(itemsDetails)
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
+import com.potemkin.musiciansocialmobileapp.models.*
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -34,9 +35,11 @@ class MapActivity : AppCompatActivity() {
         val rbImageProvider: ImageProvider = ImageProvider
             .fromResource(
                 this,
-                R.drawable.ic_rep_base)
+                R.drawable.ic_repbase)
+        val repbase = RepBaseModel("KVLT","КУЛЬТ - настоящий храм творчества и оплот музыкальной КУЛЬТуры, созданный музыкантами для музыкантов.\n" +
+                "Каждая наша комната имеет собственные характер и звук.","Москва, Электрозаводская улица, 21")
         mapview.map.mapObjects.addPlacemark(RepBasePoint,rbImageProvider).addTapListener { mapObject, point ->
-            showPlaceInfo()
+            showPlaceInfo(repbase.RepBaseName, repbase.RepBaseAbout, repbase.RepBaseAddress)
 
 
             true
@@ -45,53 +48,24 @@ class MapActivity : AppCompatActivity() {
         val cvImageProvider: ImageProvider = ImageProvider
             .fromResource(
                 this,
-                R.drawable.ic_con_venue)
+                R.drawable.ic_conven)
+        val conven = ConVenueModel("Potemkin Club","Площадка в комнате Саши","2-ой Полевой Переулок")
         mapview.map.mapObjects.addPlacemark(ConVenPoint,cvImageProvider).addTapListener { mapObject, point ->
-            showPlaceInfo()
-
-
+            showPlaceInfo(conven.ConVenName,conven.ConVenAbout,conven.ConVenAddress)
             true
         }
 
 
     }
 
-    private fun showPlaceInfo() {
+    private fun showPlaceInfo(name: String, about: String, address: String) {
         placeInfo.visibility = View.VISIBLE
-
+        place_name_tv.text=name
+        place_about_tv.text=about
+        place_address_tv.text=address
         closeButton.setOnClickListener { placeInfo.visibility = View.GONE }
     }
 
-    private fun setTapListener(listener: MapObjectTapListener) {
-        markerTapListener = listener
-    }
-
-    /*
-        Это обёртка над addPlacemark
-        в которой к маркеру цепляется обработчик событий
-        и полезная нагрузка
-    */
-    private fun addMarker(
-        latitude: Double,
-        longitude: Double,
-        @DrawableRes imageRes: Int,
-        userData: Any? = null
-    ): PlacemarkMapObject
-    {
-        val marker = mapview.map.mapObjects
-            .addPlacemark(
-                Point(latitude, longitude),
-                ImageProvider
-                    .fromResource(
-                        this,
-                        imageRes)
-            )
-        marker.userData = userData
-        markerTapListener?.let{
-            marker
-                .addTapListener(it) }
-        return marker
-    }
 
     override fun onStart() {
         mapview.onStart()

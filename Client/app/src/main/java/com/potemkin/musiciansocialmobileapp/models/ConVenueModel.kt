@@ -1,6 +1,7 @@
 package com.potemkin.musiciansocialmobileapp.models
 
 class ConVenueModel (
-    val RepBaseName: String,
-    val RepBaseAddress: String,
+    val ConVenName: String,
+    val ConVenAbout: String,
+    val ConVenAddress: String,
 )

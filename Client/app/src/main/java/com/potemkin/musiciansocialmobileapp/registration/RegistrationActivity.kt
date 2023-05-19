@@ -37,7 +37,7 @@ class RegistrationActivity : AppCompatActivity() {
                 var editTextPassword = regEditTextPassword.text.toString()
                 var editTextLogin = regEditTextLogin.text.toString()
                 var editTextPersonName = regEditTextPersonName.text.toString()
-                var user = UserModel(editTextEmail,editTextPassword,editTextLogin,editTextPersonName)
+                var user = UserModel(editTextEmail,editTextPassword,editTextLogin,editTextPersonName,"")
                 //justfortest
                 when(itemSelected){
                     "Музыкант"->{

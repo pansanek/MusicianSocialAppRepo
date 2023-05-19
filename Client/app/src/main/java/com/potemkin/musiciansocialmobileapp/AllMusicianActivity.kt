@@ -21,8 +21,8 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_musician)
-        var test1 = MusicianModel("1","Саша","Nu-Metalcore","Drums")
-        var test2 = MusicianModel("2","Ник","Metalcore","Guitar")
+        var test1 = MusicianModel("1","Саша","Nu-Metalcore","Я стукаю в барабаны :)","Drums")
+        var test2 = MusicianModel("2","Ник","Metalcore","Музыкант-стример","Guitar")
         val items: ArrayList<MusicianModel> = ArrayList()
         items.add(test1)
         items.add(test2)
@@ -41,6 +41,7 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
 
             putExtra("image", item[position].icon_url)
             putExtra("name", item[position].name)
+            putExtra("about", item[position].about)
             putExtra("genre", item[position].genres)
             putExtra("instrument", item[position].instruments)
         }
@@ -79,7 +80,7 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
                 val email = item.getString("email")
                 val password = item.getString("password")
 
-                val itemsDetails = UserModel(email,password,"","")
+                val itemsDetails = UserModel(email,password,"","","")
 
                 itemList.add(itemsDetails)
 

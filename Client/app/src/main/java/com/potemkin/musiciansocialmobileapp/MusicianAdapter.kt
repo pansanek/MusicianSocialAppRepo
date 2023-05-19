@@ -34,7 +34,7 @@ class MusicianAdapter (
         holder.name.text = item.name
         holder.genres.text = item.genres
         holder.instruments.text = item.instruments
-        Picasso.get().load(item.icon_url).into(holder.imV);
+        Picasso.get().load(R.drawable.ic_profile_bold).into(holder.imV);
     }
 
 
