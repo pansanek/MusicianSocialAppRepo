@@ -21,8 +21,8 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_musician)
-        var test1 = MusicianModel("1","Саша","Nu-Metalcore","Я стукаю в барабаны :)","Drums")
-        var test2 = MusicianModel("2","Ник","Metalcore","Музыкант-стример","Guitar")
+        var test1 = MusicianModel(1,"1","Саша","Nu-Metalcore","Я стукаю в барабаны :)","Drums")
+        var test2 = MusicianModel(2,"2","Ник","Metalcore","Музыкант-стример","Guitar")
         val items: ArrayList<MusicianModel> = ArrayList()
         items.add(test1)
         items.add(test2)
@@ -38,7 +38,7 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
     override fun onItemClick(item: ArrayList<MusicianModel>, position: Int) {
         Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show()
         val i = Intent(this, UserPageActivity::class.java).apply {
-
+            putExtra("id", item[position].id)
             putExtra("image", item[position].icon_url)
             putExtra("name", item[position].name)
             putExtra("about", item[position].about)

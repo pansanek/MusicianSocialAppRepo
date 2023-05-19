@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(i)
         }
 
-        val items: ArrayList<UserModel> = getJson()
+        //val items: ArrayList<UserModel> = getJson()
         //Toast.makeText(this, "Ошибка"+ items[1], Toast.LENGTH_SHORT).show()
         loginButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {

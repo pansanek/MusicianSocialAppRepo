@@ -10,11 +10,15 @@ class UserPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_page)
+        idTv.text = "#" + intent.getIntExtra("id",0)
         lg_tv.text = intent.getStringExtra("name")
         aboutTv.text = intent.getStringExtra("about")
         instrument.text = "Instrument: " + intent.getStringExtra("instrument")
         genres.text = "Genres: " +intent.getStringExtra("genre")
-
+        getBackButton.setOnClickListener {
+            finish()
+            System.out.close()
+        }
     }
 
     fun ChatClick(view: View) {

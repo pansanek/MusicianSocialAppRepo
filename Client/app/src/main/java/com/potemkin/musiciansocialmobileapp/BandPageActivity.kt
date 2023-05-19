@@ -32,4 +32,8 @@ class BandPageActivity : AppCompatActivity() {
         val i = Intent(this, AllBandsActivity::class.java)
         startActivity(i)
     }
+    fun ProfileClick(view: View) {
+        val i = Intent(this, ProfilePageActivity::class.java)
+        startActivity(i)
+    }
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 
 class ProfilePageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +28,14 @@ class ProfilePageActivity : AppCompatActivity() {
 
     fun AllBandClick(view: View) {
         val i = Intent(this, AllBandsActivity::class.java)
+        startActivity(i)
+    }
+
+    fun EditProfileClick(view: View) {
+        Toast.makeText(this, "В разработке", Toast.LENGTH_SHORT).show()
+    }
+    fun MyBandClick(view: View) {
+        val i = Intent(this, BandPageActivity::class.java)
         startActivity(i)
     }
 }
