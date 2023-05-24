@@ -32,7 +32,6 @@ class BandAdapter (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = item.get(position)
         holder.name.text = item.name
-        Picasso.get().load(item.icon_url).into(holder.imV);
     }
 
 
@@ -43,7 +42,6 @@ class BandAdapter (
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         val name = itemView.name
-        val imV = itemView.imV
 
         init {
             itemView.setOnClickListener(this)

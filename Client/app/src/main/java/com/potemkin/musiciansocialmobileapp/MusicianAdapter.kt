@@ -34,7 +34,6 @@ class MusicianAdapter (
         holder.name.text = item.name
         holder.genres.text = item.genres
         holder.instruments.text = item.instruments
-        Picasso.get().load(R.drawable.ic_profile_bold).into(holder.imV);
     }
 
 
@@ -47,7 +46,6 @@ class MusicianAdapter (
         val name = itemView.name
         val genres = itemView.genres
         val instruments = itemView.instruments
-        val imV = itemView.imV
 
         init {
             itemView.setOnClickListener(this)

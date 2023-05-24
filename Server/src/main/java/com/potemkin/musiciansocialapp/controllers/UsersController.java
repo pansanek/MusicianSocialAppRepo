@@ -35,10 +35,29 @@ public class UsersController {
     }
 
     @GetMapping("/delete-users")
-    public Users deleteUsers(@RequestParam(name="Users_id") Integer id){
+    public Users deleteUsers(@RequestParam(name="users_id") Integer id){
         Users Users = repo.findUsersByUsersId(id);
         repo.delete(Users);
         return Users;
+    }
+
+    @PostMapping("/auth-user")
+    public String authUser(@RequestBody Users users){
+        Users Users = repo.findUsersByEmail(users.getEmail());
+        if(Users != null){
+            if(Users.getPassword().equals(users.getPassword())){
+            return "OK";}
+            else return "Bad password";
+        }
+        return "No such user";
+    
+    }
+
+    @GetMapping("/user-by-email")
+    public Users searchUserByEmail(@RequestParam(name="email") String email){
+        Users User = repo.findUsersByEmail(email);
+        return User;
+    
     }
     
 }

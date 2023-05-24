@@ -12,7 +12,9 @@
         android:layout_height="match_parent"
         tools:itemCount="5"
         tools:listitem="@layout/musician_card" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -35,12 +37,14 @@
                 android:layout_weight="1"
                 android:onClick="MapClick"
                 app:srcCompat="@drawable/ic_map" />
+
             <ImageView
                 android:id="@+id/ic_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/ic_user_bold" />
+
             <ImageView
                 android:id="@+id/ic_band"
                 android:layout_width="wrap_content"
@@ -48,6 +52,7 @@
                 android:layout_weight="1"
                 android:onClick="AllBandClick"
                 app:srcCompat="@drawable/ic_band" />
+
             <ImageView
                 android:id="@+id/ic_chat"
                 android:layout_width="wrap_content"
@@ -55,6 +60,7 @@
                 android:layout_weight="1"
                 android:onClick="ChatClick"
                 app:srcCompat="@drawable/ic_message" />
+
             <ImageView
                 android:id="@+id/ic_profile"
                 android:layout_width="wrap_content"

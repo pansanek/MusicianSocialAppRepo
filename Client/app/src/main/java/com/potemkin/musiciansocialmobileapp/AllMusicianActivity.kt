@@ -10,43 +10,54 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.potemkin.musiciansocialmobileapp.models.MusicianModel
-import com.potemkin.musiciansocialmobileapp.models.UserModel
 import kotlinx.android.synthetic.main.activity_all_musician.*
 import org.json.JSONArray
 import org.json.JSONObject
-import kotlin.collections.ArrayList
 
 
 class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickListener {
+    val url = "http://10.0.2.2:8081/musician/all-musicians"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_musician)
-        var test1 = MusicianModel(1,"1","Саша","Nu-Metalcore","Я стукаю в барабаны :)","Drums")
-        var test2 = MusicianModel(2,"2","Ник","Metalcore","Музыкант-стример","Guitar")
-        val items: ArrayList<MusicianModel> = ArrayList()
-        items.add(test1)
-        items.add(test2)
+        val url = "http://10.0.2.2:8081/musician/all-musicians"
+        val itemList: ArrayList<MusicianModel> = ArrayList()
+        val queue = Volley.newRequestQueue(this)
+        val req = StringRequest(Request.Method.GET, url, { response ->
+            val data = response.toString()
+            val jsonArray = JSONArray(data)
 
-        rvList.layoutManager = LinearLayoutManager(this)
+            for (i in 0 until jsonArray.length()) {
+                val jsonObj = jsonArray.getJSONObject(i)
+                val items: JSONObject = jsonObj.getJSONObject("users")
 
-        val itemAdapter = MusicianAdapter(this, items, this)
+                val name = items.getString("login")
+                val id = items.getInt("usersId")
+                val itemsDetails = MusicianModel(name,id,name,name)
 
-        rvList.adapter = itemAdapter
+                itemList.add(itemsDetails)
+                rvList.layoutManager = LinearLayoutManager(this)
+                val itemAdapter = MusicianAdapter(this, itemList, this)
+                rvList.adapter = itemAdapter
+            }
+
+        }, {
+            Toast.makeText(this, "Ошибка", Toast.LENGTH_SHORT).show() }
+        )
+        queue.add(req)
+
 
     }
 
     override fun onItemClick(item: ArrayList<MusicianModel>, position: Int) {
         Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show()
         val i = Intent(this, UserPageActivity::class.java).apply {
-            putExtra("id", item[position].id)
-            putExtra("image", item[position].icon_url)
+            putExtra("id", item[position].userId)
             putExtra("name", item[position].name)
-            putExtra("about", item[position].about)
             putExtra("genre", item[position].genres)
             putExtra("instrument", item[position].instruments)
         }
         startActivity(i)
-
     }
     fun ProfileClick(view: View) {
         val i = Intent(this, ProfilePageActivity::class.java)
@@ -65,22 +76,23 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
         startActivity(i)
     }
 
-    fun getJson(): ArrayList<UserModel> {
-        val url = "http://localhost:8081/musician/all-musicians"
-        val itemList: ArrayList<UserModel> = ArrayList()
+
+    fun getJson(): ArrayList<MusicianModel> {
+        val url = "http://10.0.2.2:8081/musician/all-musicians"
+        val itemList: ArrayList<MusicianModel> = ArrayList()
         val queue = Volley.newRequestQueue(this)
         val req = StringRequest(Request.Method.GET, url, { response ->
             val data = response.toString()
-            val jsonObj: JSONObject = JSONObject(data)
-            val itemsArray: JSONArray = jsonObj.getJSONArray("users")
+            val jsonArray = JSONArray(data)
 
-            for (i in 0 .. itemsArray.length()) {
-                val item = itemsArray.getJSONObject(i)
+            for (i in 0 until jsonArray.length()) {
+                val jsonObj = jsonArray.getJSONObject(i)
+                val items: JSONObject = jsonObj.getJSONObject("users")
 
-                val email = item.getString("email")
-                val password = item.getString("password")
+                val name = items.getString("name")
+                val id = items.getInt("usersId")
 
-                val itemsDetails = UserModel(email,password,"","","")
+                val itemsDetails = MusicianModel(name,id,name,name)
 
                 itemList.add(itemsDetails)
 
