@@ -8,5 +8,6 @@ class PlaceRegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_place_registration)
+        var userEmail = intent.getStringExtra("email")
     }
 }

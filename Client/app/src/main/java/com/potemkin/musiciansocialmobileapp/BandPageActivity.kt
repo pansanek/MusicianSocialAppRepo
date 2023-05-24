@@ -11,7 +11,6 @@ class BandPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_band_page)
         lg_tv.text = intent.getStringExtra("name")
-        genres.text ="Genre: "+intent.getStringExtra("genreName")
     }
 
     fun ChatClick(view: View) {

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.potemkin.musiciansocialmobileapp.models.MusicianModel
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.musician_card.view.*
 import java.util.*
 
@@ -31,8 +30,8 @@ class MusicianAdapter (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val item = item.get(position)
+        holder.login.text = item.login
         holder.name.text = item.name
-        holder.genres.text = item.genres
         holder.instruments.text = item.instruments
     }
 
@@ -43,8 +42,8 @@ class MusicianAdapter (
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        val name = itemView.name
-        val genres = itemView.genres
+        val login = itemView.login
+        val name = itemView.musNameTv
         val instruments = itemView.instruments
 
         init {

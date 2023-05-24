@@ -52,8 +52,6 @@ class AllBandsActivity : AppCompatActivity(), BandAdapter.OnItemClickListener  {
 
     override fun onItemClick(item: ArrayList<BandModel>, position: Int) {
         val i = Intent(this, BandPageActivity::class.java).apply {
-
-            putExtra("genreName", item[position].genre)
             putExtra("name", item[position].name)
         }
         startActivity(i)

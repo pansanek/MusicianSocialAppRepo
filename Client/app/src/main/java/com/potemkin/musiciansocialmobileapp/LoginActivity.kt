@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         val getPass = sharePreference.getString("PASS","")
 
         if(getEmail!=""&&getPass!=""){
-            val i = Intent(this@LoginActivity, MapActivity::class.java)
+            val i = Intent(this@LoginActivity, ProfilePageActivity::class.java)
             startActivity(i)
         }
 
@@ -61,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString("PASS", editTextPassword)
                         editor.apply()
                         editor.commit()
-                        val i = Intent(this@LoginActivity, MapActivity::class.java)
+                        val i = Intent(this@LoginActivity, ProfilePageActivity::class.java)
                         startActivity(i)
 
                     } else Toast.makeText(

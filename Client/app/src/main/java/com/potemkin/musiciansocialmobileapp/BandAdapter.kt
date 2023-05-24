@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.potemkin.musiciansocialmobileapp.models.BandModel
-import com.potemkin.musiciansocialmobileapp.models.MusicianModel
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.musician_card.view.*
 import java.util.*
 
@@ -41,7 +39,7 @@ class BandAdapter (
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        val name = itemView.name
+        val name = itemView.login
 
         init {
             itemView.setOnClickListener(this)

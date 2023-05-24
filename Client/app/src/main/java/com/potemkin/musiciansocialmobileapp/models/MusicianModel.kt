@@ -1,8 +1,9 @@
 package com.potemkin.musiciansocialmobileapp.models
 
 class MusicianModel (
-        val name:String,
+        val login:String,
         val userId:Int,
-        val genres:String,
-        val instruments:String
+        val name:String,
+        val instruments:String,
+        val about:String
 )

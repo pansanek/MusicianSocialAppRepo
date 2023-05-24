@@ -28,7 +28,7 @@
             android:layout_marginLeft="15dp">
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Item"
@@ -37,7 +37,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/genres"
+                android:id="@+id/musNameTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Item"

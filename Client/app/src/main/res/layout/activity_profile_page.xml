@@ -94,6 +94,7 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:id="@+id/idTv"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="#id"
@@ -131,6 +132,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
+            <TextView
+                android:id="@+id/nameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Имя"
+                android:textColor="@color/main_red"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_tv" />
 
             <TextView
                 android:id="@+id/profile_aboutTv"
@@ -141,13 +153,13 @@
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="16dp"
                 android:text="aboutTv"
-                app:layout_constraintBottom_toTopOf="@+id/band"
+                app:layout_constraintBottom_toTopOf="@+id/bandTv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_tv" />
+                app:layout_constraintTop_toBottomOf="@+id/nameTv" />
 
             <TextView
-                android:id="@+id/genre"
+                android:id="@+id/genreTv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -166,12 +178,12 @@
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="16dp"
                 android:text="Instrument: "
-                app:layout_constraintBottom_toTopOf="@+id/genre"
+                app:layout_constraintBottom_toTopOf="@+id/genreTv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent" />
             <TextView
-                android:id="@+id/band"
+                android:id="@+id/bandTv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -213,7 +225,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Моя группа"
+            android:id="@+id/myTv"
+            android:text="Моя ..."
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/white" />
     </LinearLayout>

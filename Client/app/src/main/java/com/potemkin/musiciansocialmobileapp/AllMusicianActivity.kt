@@ -16,11 +16,11 @@ import org.json.JSONObject
 
 
 class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickListener {
-    val url = "http://10.0.2.2:8081/musician/all-musicians"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_musician)
-        val url = "http://10.0.2.2:8081/musician/all-musicians"
+
+        val url = "http://10.0.2.2:8081/musician_instruments/all-musician_instruments"
         val itemList: ArrayList<MusicianModel> = ArrayList()
         val queue = Volley.newRequestQueue(this)
         val req = StringRequest(Request.Method.GET, url, { response ->
@@ -29,11 +29,15 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
 
             for (i in 0 until jsonArray.length()) {
                 val jsonObj = jsonArray.getJSONObject(i)
-                val items: JSONObject = jsonObj.getJSONObject("users")
-
-                val name = items.getString("login")
+                val musObj: JSONObject = jsonObj.getJSONObject("musician")
+                val items: JSONObject = musObj.getJSONObject("users")
+                val login = items.getString("login")
+                val name = items.getString("name")
                 val id = items.getInt("usersId")
-                val itemsDetails = MusicianModel(name,id,name,name)
+                val about = items.getString("about")
+                val instObj: JSONObject = jsonObj.getJSONObject("instruments")
+                val inst = instObj.getString("instName")
+                val itemsDetails = MusicianModel(login,id,name,inst,about)
 
                 itemList.add(itemsDetails)
                 rvList.layoutManager = LinearLayoutManager(this)
@@ -54,7 +58,8 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
         val i = Intent(this, UserPageActivity::class.java).apply {
             putExtra("id", item[position].userId)
             putExtra("name", item[position].name)
-            putExtra("genre", item[position].genres)
+            putExtra("login", item[position].login)
+            putExtra("about", item[position].about)
             putExtra("instrument", item[position].instruments)
         }
         startActivity(i)
@@ -77,32 +82,5 @@ class AllMusicianActivity : AppCompatActivity(), MusicianAdapter.OnItemClickList
     }
 
 
-    fun getJson(): ArrayList<MusicianModel> {
-        val url = "http://10.0.2.2:8081/musician/all-musicians"
-        val itemList: ArrayList<MusicianModel> = ArrayList()
-        val queue = Volley.newRequestQueue(this)
-        val req = StringRequest(Request.Method.GET, url, { response ->
-            val data = response.toString()
-            val jsonArray = JSONArray(data)
 
-            for (i in 0 until jsonArray.length()) {
-                val jsonObj = jsonArray.getJSONObject(i)
-                val items: JSONObject = jsonObj.getJSONObject("users")
-
-                val name = items.getString("name")
-                val id = items.getInt("usersId")
-
-                val itemsDetails = MusicianModel(name,id,name,name)
-
-                itemList.add(itemsDetails)
-
-            }
-
-        }, {
-            Toast.makeText(this, "Ошибка", Toast.LENGTH_SHORT).show() }
-        )
-        queue.add(req)
-
-        return itemList
-    }
 }
