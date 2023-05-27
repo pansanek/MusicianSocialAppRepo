@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+         
+
+  <changeSet id="04" author="your_name">
+    <comment>Inserting users</comment>
+    <insert tableName="users">
+      <column name="users_id" valueNumeric="1"/>
+      <column name="login" value="pansanek"/>
+      <column name="password" value="12341234"/>
+      <column name="name" value="Sasha"/>
+      <column name="email" value="pansanek@gmail.com"/>
+      <column name="about" value="Стукаю в барабаны в основном, также умею играть на гитаре, бас и немного умею петь. Играю в жанре металкор, деткор, поппанк."/>
+      <column name="users_type" value="M"/>
+    </insert>
+    <insert tableName="users">
+      <column name="users_id" valueNumeric="2"/>
+      <column name="login" value="coolhat"/>
+      <column name="password" value="qwerty"/>
+      <column name="name" value="Egor"/>
+      <column name="email" value="coolhat@gmail.com"/>
+      <column name="about" value="Администратор самой крутой репетиционной базы!"/>
+      <column name="users_type" value="R"/>
+    </insert>
+    <insert tableName="users">
+      <column name="users_id" valueNumeric="3"/>
+      <column name="login" value="androidd"/>
+      <column name="password" value="12341234"/>
+      <column name="name" value="Andrew"/>
+      <column name="email" value="androidd@gmail.com"/>
+      <column name="about" value="Администратор самой крутой концертной площадки!"/>
+      <column name="users_type" value="C"/>
+    </insert>
+  </changeSet>
+</databaseChangeLog>

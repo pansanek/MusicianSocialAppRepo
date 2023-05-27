@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+         
+
+  <changeSet id="09" author="your_name">
+    <comment>Inserting RepAdm</comment>
+    <insert tableName="rep_base">
+      <column name="rep_base_id" valueNumeric="1"/>
+      <column name="rep_base_name" value="KVLT"/>
+      <column name="rep_base_address" value="Elektrozavodskaya Ulitsa, 21, Moskva"/>
+      <column name="rep_base_about" value="The KVLT is a real temple of creativity and a stronghold of musical culture, created by musicians for musicians."/>
+      <column name="rep_adm_id" value="1"/>
+    </insert>
+  </changeSet>
+</databaseChangeLog>

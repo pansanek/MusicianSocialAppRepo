@@ -8,7 +8,10 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
+import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.potemkin.musiciansocialmobileapp.LoginActivity
@@ -24,17 +27,58 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.nio.charset.StandardCharsets
+import java.util.HashMap
 
 
 class MusRegistrationActivity : AppCompatActivity() {
     var genreSelected:String = ""
     var instrumentSelected:String = ""
+    var regIns:Int = 0
+    var regGen:Int = 0
+    internal var genres:ArrayList<String> = arrayListOf()
+    internal var instruments:ArrayList<String> = arrayListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mus_registration)
         var userEmail = intent.getStringExtra("email")
-        val genres = listOf("Metalcore","Deathcore","Hardcore","Pop-punk","Punk","Heavy metal")
-        val instruments = listOf("Guitar","Drums","Bass","Vocals")
+
+        val urlGen = "http://10.0.2.2:8081/genres/all-genres"
+        val queueGen = Volley.newRequestQueue(this)
+        val reqGen = object: StringRequest(Request.Method.GET, urlGen,
+            Response.Listener<String> { response ->
+                val dataGen = response.toString()
+                val GenJsonArray = JSONArray(dataGen)
+                for (i in 0 until GenJsonArray.length()) {
+                    val GenJsonObj = GenJsonArray.getJSONObject(i)
+                    val genre_name = GenJsonObj.getString("genre_name")
+
+                    genres.add(genre_name)
+                }
+
+            },
+            Response.ErrorListener { System.out.println("Response is: Sorry :(") })
+        {
+        }
+        queueGen.add(reqGen)
+
+        val urlInst = "http://10.0.2.2:8081/instruments/all-instruments"
+        val queueInst = Volley.newRequestQueue(this)
+        val reqInst = object: StringRequest(Request.Method.GET, urlInst,
+            Response.Listener<String> { response ->
+                val dataInst = response.toString()
+                val InstJsonArray = JSONArray(dataInst)
+                for (i in 0 until InstJsonArray.length()) {
+                    val InstJsonObj = InstJsonArray.getJSONObject(i)
+                    val inst_name = InstJsonObj.getString("inst_name")
+
+                    instruments.add(inst_name)
+                }
+
+            },
+            Response.ErrorListener { System.out.println("Response is: Sorry :(") })
+        {
+        }
+        queueGen.add(reqGen)
 
         val autoCompleteGenre : AutoCompleteTextView = findViewById(R.id.autoCompleteGenre)
         val autoCompleteInstrument : AutoCompleteTextView = findViewById(R.id.autoCompleteInstrument)
@@ -84,7 +128,7 @@ class MusRegistrationActivity : AppCompatActivity() {
                 val MusObj = MusJsonArray.getJSONObject(MusJsonArray.length()-1)
                 val MusJsonId = MusObj.getInt("musicianId")
                 var musId = MusJsonId
-                regMusician(musId,user)
+                regMusician(musId+1,user)
 
                 val GenMusQueue = Volley.newRequestQueue(this)
                 val GenMusUrl = "http://10.0.2.2:8081/musician_genres/all-musician_genres"
@@ -105,8 +149,9 @@ class MusRegistrationActivity : AppCompatActivity() {
                             val GenJsonName = GenObj.getString("genreName")
                             var GenId = GenJsonId
                             var GenName = GenJsonName
-                            if (GenName == genreSelected) {
-                               regMusGenre(musId, user, GenMusId+1, GenId, GenName)
+                            if (GenName == genreSelected && regGen ==0) {
+                                regGen=1
+                               regMusGenre(musId+1, user, GenMusId+1, GenId, GenName)
                             }
                         }
                     }, {
@@ -137,8 +182,9 @@ class MusRegistrationActivity : AppCompatActivity() {
                             val InstJsonName = InstObj.getString("instName")
                             var InstId = InstJsonId
                             var InstName = InstJsonName
-                            if (InstName == instrumentSelected) {
-                                regMusInstrument(musId, user, InstMusId+1, InstId, InstName)
+                            if (InstName == instrumentSelected && regIns ==0) {
+                                regIns=1
+                                regMusInstrument(musId+1, user, InstMusId+1, InstId, InstName)
                             }
                         }
                     }, {

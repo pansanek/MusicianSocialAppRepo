@@ -10,7 +10,7 @@
             <column name="login" type="VARCHAR(20)"/>
             <column name="password" type="VARCHAR(20)"/>
             <column name="name" type="VARCHAR(20)"/>
-            <column name="email" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(256)"/>
             <column name="about" type="VARCHAR(256)"/>
             <column name="users_type" type="VARCHAR(20)"/>
         </createTable>     
@@ -67,7 +67,7 @@
             <column name="band_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="band_name" type="VARCHAR(20)">
+            <column name="band_name" type="VARCHAR(128)">
                 <constraints nullable="false"/>
             </column>
             <column name="genre_id" type="int">
@@ -84,7 +84,7 @@
             <column name="rep_base_name" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="rep_base_address" type="VARCHAR(20)">
+            <column name="rep_base_address" type="VARCHAR(256)">
                 <constraints nullable="false"/>
             </column>
             <column name="rep_base_about" type="VARCHAR(256)">
@@ -104,7 +104,7 @@
             <column name="con_ven_name" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="con_ven_address" type="VARCHAR(128)">
+            <column name="con_ven_address" type="VARCHAR(256)">
                 <constraints nullable="false"/>
             </column>
             <column name="con_ven_about" type="VARCHAR(256)">

@@ -1,3 +1,25 @@
 databaseChangeLog:
   - include:
       file: liquibase/changelog/01-create-db.xml
+  - include:
+      file: liquibase/changelog/insert-data-genres.xml
+  - include:
+      file: liquibase/changelog/insert-data-instruments.xml
+  - include:
+      file: liquibase/changelog/insert-data-users.xml
+  - include:
+      file: liquibase/changelog/insert-data-musician.xml
+  - include:
+      file: liquibase/changelog/insert-data-conadm.xml
+  - include:
+      file: liquibase/changelog/insert-data-repadm.xml
+  - include:
+      file: liquibase/changelog/insert-data-conven.xml
+  - include:
+      file: liquibase/changelog/insert-data-repbase.xml
+  - include:
+      file: liquibase/changelog/insert-data-musicianbands.xml
+  - include:
+      file: liquibase/changelog/insert-data-musiciangenres.xml
+  - include:
+      file: liquibase/changelog/insert-data-musicianinstruments.xml

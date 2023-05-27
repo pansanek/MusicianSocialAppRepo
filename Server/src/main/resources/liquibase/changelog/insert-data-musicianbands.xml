@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+         
+
+  <changeSet id="10" author="your_name">
+    <comment>Inserting bands</comment>
+    <insert tableName="musician_bands">
+      <column name="musician_bands_id" valueNumeric="1"/>
+      <column name="musician_id" value="1"/>
+      <column name="genre_id" value="1"/>
+      <column name="band_id" value="1"/>
+    </insert>
+  </changeSet>
+</databaseChangeLog>

@@ -1,8 +1,12 @@
 package com.potemkin.musiciansocialmobileapp
 
+import android.content.Context
 import android.content.Intent
+import android.location.Address
+import android.location.Geocoder
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.potemkin.musiciansocialmobileapp.*
 import androidx.appcompat.app.AppCompatActivity
 import com.potemkin.musiciansocialmobileapp.models.*
@@ -102,6 +106,29 @@ class MapActivity : AppCompatActivity() {
         android.os.Process.killProcess(android.os.Process.myPid())
     }
 
+    fun getLatLngFromAddress(context: Context, mAddress: String): AddressModel {
+        val coder = Geocoder(context)
+        lateinit var address: List<Address>
+        try {
+            address = coder.getFromLocationName(mAddress, 5) as List<Address>
+            if (address == null) {
+                Toast.makeText(
+                    this,
+                    "Fail to find Lat,Lng",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+            val location = address[0]
+            return AddressModel(location.latitude, location.longitude)
+        } catch (e: Exception) {
+            Toast.makeText(
+                this,
+                "Fail: "+e.toString(),
+                Toast.LENGTH_LONG
+            ).show()
+            return AddressModel(0.0,0.0)
+        }
+    }
 
     fun getAllRepBases(){
 

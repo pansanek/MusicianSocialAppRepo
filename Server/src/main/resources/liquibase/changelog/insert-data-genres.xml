@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+         
+
+  <changeSet id="02" author="your_name">
+    <comment>Inserting Genress</comment>
+    <insert tableName="genres">
+      <column name="genre_id" valueNumeric="1"/>
+      <column name="genre_name" value="Metalcore"/>
+    </insert>
+    <insert tableName="genres">
+      <column name="genre_id" valueNumeric="2"/>
+      <column name="genre_name" value="Deathcore"/>
+    </insert>
+    <insert tableName="genres">
+      <column name="genre_id" valueNumeric="3"/>
+      <column name="genre_name" value="Heavy Metal"/>
+    </insert>
+    <insert tableName="genres">
+      <column name="genre_id" valueNumeric="4"/>
+      <column name="genre_name" value="Rock"/>
+    </insert>
+    <insert tableName="genres">
+      <column name="genre_id" valueNumeric="5"/>
+      <column name="genre_name" value="Punk"/>
+    </insert>
+    <insert tableName="genres">
+      <column name="genre_id" valueNumeric="6"/>
+      <column name="genre_name" value="Pop-punk"/>
+    </insert>
+    <insert tableName="genres">
+      <column name="genre_id" valueNumeric="7"/>
+      <column name="genre_name" value="Blues"/>
+    </insert>
+    <insert tableName="genres">
+      <column name="genre_id" valueNumeric="8"/>
+      <column name="genre_name" value="Hard Rock"/>
+    </insert>
+  </changeSet>
+</databaseChangeLog>

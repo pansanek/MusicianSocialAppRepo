@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+         
+
+  <changeSet id="03" author="your_name">
+    <comment>Inserting instruments</comment>
+    <insert tableName="instruments">
+      <column name="inst_id" valueNumeric="1"/>
+      <column name="inst_name" value="Vocal"/>
+    </insert>
+    <insert tableName="instruments">
+      <column name="inst_id" valueNumeric="2"/>
+      <column name="inst_name" value="Lead Guitar"/>
+    </insert>
+    <insert tableName="instruments">
+      <column name="inst_id" valueNumeric="3"/>
+      <column name="inst_name" value="Rhythm Guitar"/>
+    </insert>
+    <insert tableName="instruments">
+      <column name="inst_id" valueNumeric="4"/>
+      <column name="inst_name" value="Drums"/>
+    </insert>
+    <insert tableName="instruments">
+      <column name="inst_id" valueNumeric="5"/>
+      <column name="inst_name" value="Bass"/>
+    </insert>
+    <insert tableName="instruments">
+      <column name="inst_id" valueNumeric="6"/>
+      <column name="inst_name" value="Violin"/>
+    </insert>
+    <insert tableName="instruments">
+      <column name="inst_id" valueNumeric="7"/>
+      <column name="inst_name" value="Cello"/>
+    </insert>
+    <insert tableName="instruments">
+      <column name="inst_id" valueNumeric="8"/>
+      <column name="inst_name" value="Piano"/>
+    </insert>
+  </changeSet>
+</databaseChangeLog>
