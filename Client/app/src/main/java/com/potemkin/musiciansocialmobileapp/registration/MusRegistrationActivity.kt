@@ -50,7 +50,7 @@ class MusRegistrationActivity : AppCompatActivity() {
                 val GenJsonArray = JSONArray(dataGen)
                 for (i in 0 until GenJsonArray.length()) {
                     val GenJsonObj = GenJsonArray.getJSONObject(i)
-                    val genre_name = GenJsonObj.getString("genre_name")
+                    val genre_name = GenJsonObj.getString("genreName")
 
                     genres.add(genre_name)
                 }
@@ -69,7 +69,7 @@ class MusRegistrationActivity : AppCompatActivity() {
                 val InstJsonArray = JSONArray(dataInst)
                 for (i in 0 until InstJsonArray.length()) {
                     val InstJsonObj = InstJsonArray.getJSONObject(i)
-                    val inst_name = InstJsonObj.getString("inst_name")
+                    val inst_name = InstJsonObj.getString("instName")
 
                     instruments.add(inst_name)
                 }
@@ -78,7 +78,7 @@ class MusRegistrationActivity : AppCompatActivity() {
             Response.ErrorListener { System.out.println("Response is: Sorry :(") })
         {
         }
-        queueGen.add(reqGen)
+        queueInst.add(reqInst)
 
         val autoCompleteGenre : AutoCompleteTextView = findViewById(R.id.autoCompleteGenre)
         val autoCompleteInstrument : AutoCompleteTextView = findViewById(R.id.autoCompleteInstrument)

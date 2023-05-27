@@ -15,25 +15,61 @@
       <column name="password" value="12341234"/>
       <column name="name" value="Sasha"/>
       <column name="email" value="pansanek@gmail.com"/>
-      <column name="about" value="Стукаю в барабаны в основном, также умею играть на гитаре, бас и немного умею петь. Играю в жанре металкор, деткор, поппанк."/>
+      <column name="about" value="I play the drums mostly, I also know how to play guitar, bass and I can sing a little. I play in the genre of metalcore, detcore, pop punk."/>
       <column name="users_type" value="M"/>
     </insert>
     <insert tableName="users">
       <column name="users_id" valueNumeric="2"/>
+      <column name="login" value="olobersykes"/>
+      <column name="password" value="qwerty"/>
+      <column name="name" value="Oliver"/>
+      <column name="email" value="olober@gmail.com"/>
+      <column name="about" value="Vocalist of The Horizons"/>
+      <column name="users_type" value="M"/>
+    </insert>
+    <insert tableName="users">
+      <column name="users_id" valueNumeric="3"/>
+      <column name="login" value="ixihate"/>
+      <column name="password" value="12341234"/>
+      <column name="name" value="Alexander"/>
+      <column name="email" value="ixihate@gmail.com"/>
+      <column name="about" value="Hi! I am a guitarist with many years of experience playing various genres of music. I like to experiment with sound and create unique melodies that transport listeners to another world."/>
+      <column name="users_type" value="M"/>
+    </insert>
+    <insert tableName="users">
+      <column name="users_id" valueNumeric="4"/>
+      <column name="login" value="mickeypickles"/>
+      <column name="password" value="12341234"/>
+      <column name="name" value="Matt"/>
+      <column name="email" value="mickey@gmail.com"/>
+      <column name="about" value="Drummer of The Horizons"/>
+      <column name="users_type" value="M"/>
+    </insert>
+    <insert tableName="users">
+      <column name="users_id" valueNumeric="5"/>
+      <column name="login" value="EddieBerg"/>
+      <column name="password" value="12341234"/>
+      <column name="name" value="Eddie"/>
+      <column name="email" value="eddieberg@gmail.com"/>
+      <column name="about" value="I am a vocalist-violinist with many years of experience performing on stage. My art combines the beauty of violin music with powerful vocals, creating a unique sound. I am ready to work with other talented musicians and create unique works of art."/>
+      <column name="users_type" value="M"/>
+    </insert>
+    <insert tableName="users">
+      <column name="users_id" valueNumeric="6"/>
       <column name="login" value="coolhat"/>
       <column name="password" value="qwerty"/>
       <column name="name" value="Egor"/>
       <column name="email" value="coolhat@gmail.com"/>
-      <column name="about" value="Администратор самой крутой репетиционной базы!"/>
+      <column name="about" value="The administrator of the coolest repbase!"/>
       <column name="users_type" value="R"/>
     </insert>
     <insert tableName="users">
-      <column name="users_id" valueNumeric="3"/>
+      <column name="users_id" valueNumeric="7"/>
       <column name="login" value="androidd"/>
       <column name="password" value="12341234"/>
       <column name="name" value="Andrew"/>
       <column name="email" value="androidd@gmail.com"/>
-      <column name="about" value="Администратор самой крутой концертной площадки!"/>
+      <column name="about" value="The administrator of the coolest concert venue!"/>
       <column name="users_type" value="C"/>
     </insert>
   </changeSet>

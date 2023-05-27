@@ -10,6 +10,8 @@ databaseChangeLog:
   - include:
       file: liquibase/changelog/insert-data-musician.xml
   - include:
+      file: liquibase/changelog/insert-data-bands.xml
+  - include:
       file: liquibase/changelog/insert-data-conadm.xml
   - include:
       file: liquibase/changelog/insert-data-repadm.xml

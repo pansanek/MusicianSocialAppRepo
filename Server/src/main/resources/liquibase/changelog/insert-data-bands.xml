@@ -14,5 +14,10 @@
       <column name="band_name" value="Architects"/>
       <column name="genre_id" value="1"/>
     </insert>
+    <insert tableName="bands">
+      <column name="band_id" valueNumeric="2"/>
+      <column name="band_name" value="The Horizons"/>
+      <column name="genre_id" value="2"/>
+    </insert>
   </changeSet>
 </databaseChangeLog>

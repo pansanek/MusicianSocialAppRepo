@@ -9,6 +9,10 @@ import android.view.View
 import android.widget.Toast
 import com.potemkin.musiciansocialmobileapp.*
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.potemkin.musiciansocialmobileapp.models.*
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
@@ -19,6 +23,7 @@ import com.yandex.mapkit.map.PlacemarkMapObject
 import com.yandex.mapkit.mapview.MapView
 import com.yandex.runtime.image.ImageProvider
 import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONArray
 
 class MapActivity : AppCompatActivity() {
     lateinit var mapview:MapView
@@ -34,32 +39,53 @@ class MapActivity : AppCompatActivity() {
         mapview = findViewById(R.id.mapView)
         mapview.map.move(CameraPosition(Point(55.754598, 37.619703),11.0f,0.0f,0.0f),
         Animation(Animation.Type.SMOOTH,0f),null)
-        val cvImageProvider: ImageProvider = ImageProvider
-            .fromResource(
-                this,
-                R.drawable.ic_conven)
-        val rbImageProvider: ImageProvider = ImageProvider
-            .fromResource(
-                this,
-                R.drawable.ic_repbase)
 
 
-        val RepBasePoint = Point(55.788089, 37.705623)
-        val repbase = RepBaseModel("KVLT","КУЛЬТ - настоящий храм творчества и оплот музыкальной КУЛЬТуры, созданный музыкантами для музыкантов.\n" +
-                "Каждая наша комната имеет собственные характер и звук.","Москва, Электрозаводская улица, 21")
-        mapview.map.mapObjects.addPlacemark(RepBasePoint,rbImageProvider).addTapListener { mapObject, point ->
-            showPlaceInfo(repbase.RepBaseName, repbase.RepBaseAbout, repbase.RepBaseAddress)
-            true
-        }
+        val urlRep = "http://10.0.2.2:8081/rep_base/all-rep_bases"
+        val queueRep = Volley.newRequestQueue(this)
 
+        val RepRequest = StringRequest(
+            Request.Method.GET, urlRep,
+            { response ->
+                val data = response.toString()
+                System.out.println("Response is: "+data)
+                val jsonArray = JSONArray(data)
 
-        val ConVenPoint = Point(55.791567, 37.682718)
-        val conven = ConVenueModel("Potemkin Club","Площадка в комнате Саши","2-ой Полевой Переулок")
-        mapview.map.mapObjects.addPlacemark(ConVenPoint,cvImageProvider).addTapListener { mapObject, point ->
-            showPlaceInfo(conven.ConVenName,conven.ConVenAbout,conven.ConVenAddress)
-            true
-        }
+                for (i in 0 until jsonArray.length()) {
+                    val items = jsonArray.getJSONObject(i)
+                    val about = items.getString("repBaseAbout")
+                    val address = items.getString("repBaseAddress")
+                    val name = items.getString("repBaseName")
+                    makeRepPoint(name,about,address)
 
+                }
+            },
+            { System.out.println("Response is: Sorry :(") })
+
+        queueRep.add(RepRequest)
+
+        val urlCon = "http://10.0.2.2:8081/con_venue/all-con_venue"
+        val queueCon = Volley.newRequestQueue(this)
+
+        val ConRequest = StringRequest(
+            Request.Method.GET, urlCon,
+            { response ->
+                val data = response.toString()
+                System.out.println("Response is: "+data)
+                val jsonArray = JSONArray(data)
+
+                for (i in 0 until jsonArray.length()) {
+                    val items = jsonArray.getJSONObject(i)
+                    val about = items.getString("conVenAbout")
+                    val address = items.getString("conVenAddress")
+                    val name = items.getString("conVenName")
+                    makeConPoint(name,about,address)
+
+                }
+            },
+            { System.out.println("Response is: Sorry :(") })
+
+        queueCon.add(ConRequest)
 
     }
 
@@ -72,6 +98,37 @@ class MapActivity : AppCompatActivity() {
         closeInfoButton.setOnClickListener { placeInfo.visibility = View.GONE }
     }
 
+    fun makeRepPoint(name: String, about: String, address: String){
+        val rbImageProvider: ImageProvider = ImageProvider
+            .fromResource(
+                this,
+                R.drawable.ic_repbase)
+        System.out.println("Addr"+address)
+        var myAddr:AddressModel = getLatLngFromAddress(this,address)
+        val Point = Point(myAddr.Latitude, myAddr.Longitude)
+        System.out.println("Lat is"+myAddr.Latitude+" Long is"+myAddr.Longitude)
+        mapview.map.mapObjects.addPlacemark(Point,rbImageProvider).addTapListener { mapObject, point ->
+            showPlaceInfo(name,about,address)
+
+            true
+        }
+    }
+
+    fun makeConPoint(name: String, about: String, address: String){
+        val rbImageProvider: ImageProvider = ImageProvider
+            .fromResource(
+                this,
+                R.drawable.ic_conven)
+        System.out.println("Addr"+address)
+        var myAddr:AddressModel = getLatLngFromAddress(this,address)
+        val Point = Point(myAddr.Latitude, myAddr.Longitude)
+        System.out.println("Lat is"+myAddr.Latitude+" Long is"+myAddr.Longitude)
+        mapview.map.mapObjects.addPlacemark(Point,rbImageProvider).addTapListener { mapObject, point ->
+            showPlaceInfo(name,about,address)
+
+            true
+        }
+    }
 
     override fun onStart() {
         mapview.onStart()
@@ -130,11 +187,4 @@ class MapActivity : AppCompatActivity() {
         }
     }
 
-    fun getAllRepBases(){
-
-    }
-
-    fun getAllConVenues(){
-
-    }
 }

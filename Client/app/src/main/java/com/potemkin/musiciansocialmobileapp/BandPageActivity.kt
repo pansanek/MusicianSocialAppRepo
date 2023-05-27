@@ -5,12 +5,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_band_page.*
+import kotlinx.android.synthetic.main.activity_band_page.getBackButton
+import kotlinx.android.synthetic.main.activity_band_page.lg_tv
+import kotlinx.android.synthetic.main.activity_user_page.*
 
 class BandPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_band_page)
         lg_tv.text = intent.getStringExtra("name")
+        genresTv.text = "Genres: " +intent.getStringExtra("genre")
+        getBackButton.setOnClickListener {
+            finish()
+            System.out.close()
+        }
     }
 
     fun ChatClick(view: View) {
